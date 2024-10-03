@@ -8,7 +8,9 @@ export default function Navbar() {
     <nav className="backdrop-blur-sm lg:bg-gradient-to-b lg:from-black/85 fixed w-full z-20 text-white p-5 md:text-lg ">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center">
+            <a href="/">
           <img src={logo} alt="Logo" className="h-14 w-14 mr-2" />
+          </a>
         </div>
         <div className="hidden md:flex space-x-4">
           <a href="/products" className="text-white hover:text-yellow-300 hover:underline">Products</a>
