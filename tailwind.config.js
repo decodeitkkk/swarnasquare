@@ -7,7 +7,11 @@ export default {
     flowbite.content(),
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+       charm: ['Charm', 'cursive'], 
+      },
+    },
   },
   plugins: [
     flowbite.plugin(),

@@ -1,14 +1,18 @@
-import heroBg from "../../assets/Home/hero-bg.png"
+
+import Flow from "./Flow"
+import Gallery from "./Gallery"
+import Hero from "./Hero"
+import Preview from "./Preview"
+import Quote from "./Quote"
 const LandingPage = () => {
   return (
-    <div className="h-screen"
-    style={{
-      backgroundImage: `url(${heroBg})`,
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      width: "100%", // Set your desired width
-    }}
-    >LandingPage</div>
+    <div>
+      <Hero/>
+      <Quote/>
+      <Flow/>
+      <Gallery/>
+      <Preview/>
+    </div>
   )
 }
 
