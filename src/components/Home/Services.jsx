@@ -17,7 +17,7 @@ const Services = () => {
         </p>
 
         {/* List Section */}
-        <div className="flex flex-row items-center justify-center mt-6 gap-5">
+        <div className="flex flex-row items-center justify-center md:justify-start mt-6 gap-5">
           <div className="flex flex-col gap-3">
             <li className="flex items-center gap-3 bg-[#F5F4F4] w-[140px] md:w-[150px] h-[40px] p-2">
               <img src={tick} alt="tick" className="w-4 h-4" />
@@ -33,7 +33,7 @@ const Services = () => {
             </li>
           </div>
           
-          <div className="flex flex-col gap-3 mt-4 md:mt-0">
+          <div className="flex flex-col gap-3 md:mt-0">
             <li className="flex items-center gap-3 bg-[#F5F4F4] w-[140px] md:w-[150px] h-[40px] p-2">
               <img src={tick} alt="tick" className="w-4 h-4" />
               <p className="text-sm md:text-lg">Korem ipsum</p>

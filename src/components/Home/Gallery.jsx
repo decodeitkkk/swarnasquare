@@ -1,4 +1,3 @@
-"use client"
 
 import { useState, useEffect } from "react";
 import img1 from "../../assets/Home/Gallery/1.png";
@@ -73,7 +72,7 @@ const Gallery = () => {
 
   return (
     <div className="max-w-7xl mx-auto py-10 text-center px-4">
-      <h2 className="text-3xl font-bold">Gallery</h2>
+      <h2 className="text-3xl font-medium">Gallery</h2>
       <p className="text-gray-500 mb-4 lg:mb-8">A large collection of gold jewellery</p>
 
       <div className="relative flex items-center justify-center mx-auto">

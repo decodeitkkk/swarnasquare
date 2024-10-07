@@ -8,6 +8,9 @@ export default {
   ],
   theme: {
     extend: {
+      colors:{
+        'primary':'rgba(255, 255, 255, 0.2)'
+      },
       fontFamily: {
        charm: ['Charm', 'cursive'], 
       },
