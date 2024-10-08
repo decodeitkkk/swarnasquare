@@ -68,7 +68,7 @@ export default function Navbar() {
               <a href="/about-us/who-we-are" className="block px-4 py-2 text-sm text-white hover:bg-yellow-100">Who we are?</a>
               <a href="/about-us/what-we-do" className="block px-4 py-2 text-sm text-white hover:bg-yellow-100">What we do?</a>
               <a href="/about-us/how-we-do" className="block px-4 py-2 text-sm text-white hover:bg-yellow-100">How we do?</a>
-              <a href="/about-us/why-us" className="block px-4 py-2 text-sm text-white hover:bg-yellow-100">FAQ</a>
+              <a href="/about-us/faq" className="block px-4 py-2 text-sm text-white hover:bg-yellow-100">FAQ</a>
             </div>
           </div>
 
