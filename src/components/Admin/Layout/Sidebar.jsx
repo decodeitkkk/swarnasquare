@@ -7,42 +7,42 @@ const Sidebar = () => {
         <h2 className="text-2xl font-semibold">Swarna Square</h2>
         <ul className="mt-6">
           <li className="mb-4">
-            <Link to="/admin/dashboard" className="hover:bg-gray-700 p-2 rounded block">
+            <Link to="/dashboard" className="hover:bg-gray-700 p-2 rounded block">
               Dashboard
             </Link>
           </li>
           <li className="mb-4">
-            <Link to="/admin/user-management" className="hover:bg-gray-700 p-2 rounded block">
+            <Link to="/user-management" className="hover:bg-gray-700 p-2 rounded block">
               User Management
             </Link>
           </li>
           <li className="mb-4">
-            <Link to="/admin/kyc" className="hover:bg-gray-700 p-2 rounded block">
+            <Link to="/kyc" className="hover:bg-gray-700 p-2 rounded block">
               KYC Approvals
             </Link>
           </li>
           <li className="mb-4">
-            <Link to="/admin/inr-transaction" className="hover:bg-gray-700 p-2 rounded block">
+            <Link to="/inr-transaction" className="hover:bg-gray-700 p-2 rounded block">
               INR Transactions
             </Link>
           </li>
           <li className="mb-4">
-            <Link to="/admin/gold-transaction" className="hover:bg-gray-700 p-2 rounded block">
+            <Link to="/gold-transaction" className="hover:bg-gray-700 p-2 rounded block">
               Gold Transactions
             </Link>
           </li>
           <li className="mb-4">
-            <Link to="/admin/order-list" className="hover:bg-gray-700 p-2 rounded block">
+            <Link to="/order-list" className="hover:bg-gray-700 p-2 rounded block">
               Orders
             </Link>
           </li>
           <li className="mb-4">
-            <Link to="/admin/custom-designs" className="hover:bg-gray-700 p-2 rounded block">
+            <Link to="/custom-designs" className="hover:bg-gray-700 p-2 rounded block">
               Custom Designs
             </Link>
           </li>
           <li className="mb-4">
-            <Link to="/admin/admin-users" className="hover:bg-gray-700 p-2 rounded block">
+            <Link to="/admin-users" className="hover:bg-gray-700 p-2 rounded block">
               Admin Users
             </Link>
           </li>

@@ -39,14 +39,14 @@ function App() {
         <Route path='/about-us/how-we-do' element={<HowWeDo/>} />
         <Route path='/about-us/faq' element={<FAQSection/>} />
         <Route path='/meet-us' element={<MeetUs/>} />
-        <Route path='/admin/dashboard' element={<Dashboard/>} />
-        <Route path='/admin/user-management' element={<UserManagement/>} />
-        <Route path='/admin/kyc' element={<KYC/>} />
-        <Route path='/admin/inr-transaction' element={<INRTransactionHistory/>} />
-        <Route path='/admin/gold-transaction' element={<GoldTransactionHistory/>} />
-        <Route path='/admin/order-list' element={<OrderList/>} />
-        <Route path='/admin/admin-users' element={<AdminUserModule/>} />
-        <Route path='/admin/custom-designs' element={<CustomDesignModule/>} />
+        <Route path='/dashboard' element={<Dashboard/>} />
+        <Route path='/user-management' element={<UserManagement/>} />
+        <Route path='/kyc' element={<KYC/>} />
+        <Route path='/inr-transaction' element={<INRTransactionHistory/>} />
+        <Route path='/gold-transaction' element={<GoldTransactionHistory/>} />
+        <Route path='/order-list' element={<OrderList/>} />
+        <Route path='/admin-users' element={<AdminUserModule/>} />
+        <Route path='/custom-designs' element={<CustomDesignModule/>} />
       </Routes>
       </BrowserRouter>
     </Layout>
