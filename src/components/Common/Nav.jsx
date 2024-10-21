@@ -73,6 +73,7 @@ export default function Navbar() {
           </div>
 
           <a href="/meet-us" className="text-white hover:text-yellow-300 hover:underline">Meet Us</a>
+          <a href="/admin/dashboard" className="text-white hover:text-yellow-300 hover:underline">Admin</a>
         </div>
         <a className=" text-white hover:text-yellow-300 hover:underline hidden md:block">
           Sign In/ Sign Up
