@@ -25,7 +25,7 @@ import HomepageEditor from './components/Admin/HomePage'
 import CategoryForm from './components/Admin/Category/CategoryForm'
 import CategoryTable from './components/Admin/Category/CategoryTable'
 import { useEffect, useState } from 'react'
-// import LandingPage from './components/Home/LandingPage'
+import Signupsignin from "./components/Signupsignin/Signupsignin";
 
 function App() {
   
@@ -91,44 +91,60 @@ function App() {
 
   return (
     <>
-    <Layout>
-      <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<LandingPage/>} />
-        <Route path='/products' element={<Products/>} />
-        <Route path='/services' element={<Services/>} />
-        <Route path='/about-us' element={<AboutUs/>} />
-        <Route path='/about-us/who-we-are' element={<WhoWeAre/>} />
-        <Route path='/about-us/why-us' element={<WhyUs/>} />
-        <Route path='/about-us/what-we-do' element={<WhatWeDo/>} />
-        <Route path='/about-us/how-we-do' element={<HowWeDo/>} />
-        <Route path='/about-us/faq' element={<FAQSection/>} />
-        <Route path='/meet-us' element={<MeetUs/>} />
-        <Route path='/admin/dashboard' element={<Dashboard/>} />
-        <Route path='/admin/user-management' element={<UserManagement/>} />
-        <Route path='/admin/kyc' element={<KYC/>} />
-        <Route path='/admin/inr-transaction' element={<INRTransactionHistory/>} />
-        <Route path='/admin/gold-transaction' element={<GoldTransactionHistory/>} />
-        <Route path='/admin/order-list' element={<OrderList/>} />
-        <Route path='/admin-users' element={<AdminUserModule/>} />
-        <Route path='admin/custom-designs' element={<CustomDesignModule/>} />
-        <Route path='/admin/product-form' element={<ProductForm/>} />
-        <Route path='/admin/products' element={<ProductTable 
-        products={products} 
-        editProduct={editProduct} 
-        deleteProduct={deleteProduct} 
-        searchTerm={searchTerm} 
-        setSearchTerm={setSearchTerm} 
-      />} />
-        <Route path='/admin/home' element={<HomepageEditor/>} />
-        <Route path='/admin/category-form' element={<CategoryForm/>} />
-        <Route path='/admin/category' element={<CategoryTable/>} />
-      </Routes>
-      </BrowserRouter>
-    </Layout>
-    
+      
+        <BrowserRouter>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/about-us/who-we-are" element={<WhoWeAre />} />
+            <Route path="/about-us/why-us" element={<WhyUs />} />
+            <Route path="/about-us/what-we-do" element={<WhatWeDo />} />
+            <Route path="/about-us/how-we-do" element={<HowWeDo />} />
+            <Route path="/about-us/faq" element={<FAQSection />} />
+            <Route path="/meet-us" element={<MeetUs />} />
+            <Route path="/admin/dashboard" element={<Dashboard />} />
+            <Route path="/admin/user-management" element={<UserManagement />} />
+            <Route path="/admin/kyc" element={<KYC />} />
+            <Route
+              path="/admin/inr-transaction"
+              element={<INRTransactionHistory />}
+            />
+            <Route
+              path="/admin/gold-transaction"
+              element={<GoldTransactionHistory />}
+            />
+            <Route path="/admin/order-list" element={<OrderList />} />
+            <Route path="/admin-users" element={<AdminUserModule />} />
+            <Route
+              path="admin/custom-designs"
+              element={<CustomDesignModule />}
+            />
+            <Route path="/admin/product-form" element={<ProductForm />} />
+            <Route
+              path="/admin/products"
+              element={
+                <ProductTable
+                  products={products}
+                  editProduct={editProduct}
+                  deleteProduct={deleteProduct}
+                  searchTerm={searchTerm}
+                  setSearchTerm={setSearchTerm}
+                />
+              }
+            />
+            <Route path="/admin/home" element={<HomepageEditor />} />
+            <Route path="/admin/category-form" element={<CategoryForm />} />
+            <Route path="/admin/category" element={<CategoryTable />} />
+            <Route path="/signupsignin" element={<Signupsignin />} />
+          </Routes>
+          </Layout>
+        </BrowserRouter>
+      
     </>
-  )
+  );
 }
 
 export default App
