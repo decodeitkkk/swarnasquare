@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import Sidebar from "./Layout/Sidebar";
 
-// Mock user data for example purposes
 const usersData = [
   {
     id: 1,
@@ -47,7 +45,6 @@ const UserManagement = () => {
 
   return (
     <div className="flex">
-      <Sidebar />
       <div className="bg-white p-6 rounded-lg shadow-lg mt-28 w-full">
         <h2 className="text-2xl font-semibold mb-4">User Management</h2>
         <table className="min-w-full bg-white border">
@@ -93,10 +90,19 @@ const UserManagement = () => {
         {/* User Profile Section */}
         {selectedUser && (
           <div className="bg-gray-50 p-4 mt-6 rounded-lg shadow-lg">
-            <h3 className="text-xl font-semibold mb-4">User Profile: {selectedUser.userName}</h3>
-            <p><strong>Wallet Amount (INR):</strong> ₹{selectedUser.walletAmount}</p>
-            <p><strong>Gold Wallet Amount:</strong> {selectedUser.goldWalletAmount} grams</p>
-            <p><strong>KYC Status:</strong> {selectedUser.kycDocuments}</p>
+            <h3 className="text-xl font-semibold mb-4">
+              User Profile: {selectedUser.userName}
+            </h3>
+            <p>
+              <strong>Wallet Amount (INR):</strong> ₹{selectedUser.walletAmount}
+            </p>
+            <p>
+              <strong>Gold Wallet Amount:</strong>{" "}
+              {selectedUser.goldWalletAmount} grams
+            </p>
+            <p>
+              <strong>KYC Status:</strong> {selectedUser.kycDocuments}
+            </p>
 
             {/* Orders Table */}
             <h4 className="text-lg font-semibold mt-4">Orders:</h4>
@@ -120,7 +126,9 @@ const UserManagement = () => {
             </table>
 
             {/* Custom Design Requests Table */}
-            <h4 className="text-lg font-semibold mt-4">Custom Design Requests:</h4>
+            <h4 className="text-lg font-semibold mt-4">
+              Custom Design Requests:
+            </h4>
             <table className="min-w-full bg-white border mt-2">
               <thead>
                 <tr>
@@ -139,7 +147,9 @@ const UserManagement = () => {
             </table>
 
             {/* Transaction History Table */}
-            <h4 className="text-lg font-semibold mt-4">INR Transaction History:</h4>
+            <h4 className="text-lg font-semibold mt-4">
+              INR Transaction History:
+            </h4>
             <table className="min-w-full bg-white border mt-2">
               <thead>
                 <tr>
@@ -162,7 +172,9 @@ const UserManagement = () => {
             </table>
 
             {/* Gold Transaction History Table */}
-            <h4 className="text-lg font-semibold mt-4">Gold Transaction History:</h4>
+            <h4 className="text-lg font-semibold mt-4">
+              Gold Transaction History:
+            </h4>
             <table className="min-w-full bg-white border mt-2">
               <thead>
                 <tr>

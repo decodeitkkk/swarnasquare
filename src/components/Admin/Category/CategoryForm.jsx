@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Sidebar from "../Layout/Sidebar";
+import Sidebar from "../DashboardLayout/Sidebar";
 
 const demoVariables = [
   { name: "purity", label: "Purity (22, 20, 18)" },
@@ -17,7 +17,7 @@ const demoVariables = [
   { name: "locks", label: "Locks" },
   { name: "clarity", label: "Clarity" },
   { name: "carat", label: "Carat (for diamond)" },
-  { name: "size", label: "Size" }
+  { name: "size", label: "Size" },
 ];
 
 const CategoryForm = () => {
@@ -68,7 +68,10 @@ const CategoryForm = () => {
             ))}
           </div>
 
-          <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
+          <button
+            type="submit"
+            className="bg-blue-500 text-white px-4 py-2 rounded"
+          >
             Add Category
           </button>
         </form>

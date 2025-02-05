@@ -1,7 +1,35 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Charm:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Droid+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Droid+Sans:wght@400;700&family=Comfortaa:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shalimar&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Romanesco&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Island+Moments&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+/* add the code bellow */ 
+@layer utilities {
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      .no-scrollbar::-webkit-scrollbar {
+          display: none;
+      }
+     /* Hide scrollbar for IE, Edge and Firefox */
+      .no-scrollbar {
+          -ms-overflow-style: none;  /* IE and Edge */
+          scrollbar-width: none;  /* Firefox */
+    }
+    /* In your index.css or App.css */
+    .border-gradient {
+        border: 3px solid transparent;
+        border-image: linear-gradient(to right, #FFE49F, #978D71, #EDC253, #B38717, #E9C978, #99895F) 1;
+    }
+
+  }

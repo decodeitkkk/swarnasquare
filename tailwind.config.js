@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 import flowbite from "flowbite-react/tailwind";
 
+
 export default {
   content: [
     "./index.html",
@@ -15,9 +16,15 @@ export default {
         custom: "rgba(36, 32, 32, 0.6)", // Dark shade for backgrounds
       },
       fontFamily: {
-        sans: ['Poppins', 'sans-serif'],
+        sans: ['Poppins', 'sans-serif'], // Default sans font
+        droid: ['Droid Sans', 'sans-serif'], 
+        comfortaa: ['Comfortaa', 'sans-serif'], 
+        playfair: ['Playfair Display', 'sans-serif'], 
         charm: ["Charm", "cursive"], // Decorative cursive font
-        italic: ["Roboto", "sans-serif"], // Roboto Italic variant
+        italic: ["Roboto", "sans-serif"],
+        shalimar: ["Shalimar", "cursive"],
+        romanesco: ["Romanesco", "cursive"],
+        im: ["Island Moments", "cursive"],
       },
       perspective: {
         1000: "1000px",
@@ -31,6 +38,7 @@ export default {
     },
   },
   plugins: [
+    require('tailwind-scrollbar-hide'),
     flowbite.plugin(),
   ],
 };
