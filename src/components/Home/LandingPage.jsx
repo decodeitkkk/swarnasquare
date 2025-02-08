@@ -1,7 +1,7 @@
 
 import AboutUs from "./AboutUs"
-import Demo from "./Demo"
-
+import Offers from "./Offers"
+import FAQ from "./FAQ"
 import Gallery from "./Gallery"
 import GradientBg from "./GradientBg"
 import Hero from "./Hero"
@@ -10,13 +10,13 @@ import Graph from "./Graph";
 import Quote from "./Quote";
 import Preview from "./Preview"
 import Services from "./Services"
-import TestimonialCarousel from "./Testimonial"
 import Navbar from "../Common/Nav"
+import Footer from "../Common/Footer"
 const LandingPage = () => {
   return (
-    <div className="realtive">
+    <div className="relative w-full">
       <div
-        className="fixed inset-0 bg-cover bg-center bg-fixed -z-10 border-2 border-black"
+        className="fixed inset-0 bg-cover bg-center bg-fixed -z-10"
         style={{ backgroundImage: `url(./BlurBg.png)` }}
       />
       <div className="z-20 w-full h-[95px] bg-[#291510] mx-auto flex items-center justify-center">
@@ -35,10 +35,11 @@ const LandingPage = () => {
       <Gallery />
       <Preview />
       <GradientBg />
-      <Demo />
+      <Offers />
       <Services />
+      <FAQ/>
       <AboutUs />
-      <TestimonialCarousel />
+      <Footer/>
     </div>
   );
 }

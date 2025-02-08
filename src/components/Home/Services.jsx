@@ -1,61 +1,60 @@
-import services from "../../assets/Services/Services.png";
-import tick from "../../assets/Services/tick.png";
+import React from 'react'
 
+
+const services = [
+  {
+    title: "LOGISTICS",
+    subtitle: "AND INSURANCE",
+    icon: "/path-to-your-logo1.png",
+  },
+  { title: "TECH", subtitle: "GOLD DESIGN", icon: "/path-to-your-logo2.png" },
+  { title: "24/7 SUPPORT", subtitle: "CARE", icon: "/path-to-your-logo3.png" },
+  { title: "GOLD LOAN", subtitle: "FACILITY", icon: "/path-to-your-logo4.png" },
+  {
+    title: "COVERAGE",
+    subtitle: "PINCODE COVERED",
+    icon: "/path-to-your-logo5.png",
+  },
+  {
+    title: "WALLET FOR",
+    subtitle: "GOLD BALANCE",
+    icon: "/path-to-your-logo6.png",
+  },
+  {
+    title: "INSTANT BUY",
+    subtitle: "GOLD BOOKING",
+    icon: "/path-to-your-logo7.png",
+  },
+  { title: "CUSTOM", subtitle: "CUSTOM", icon: "/path-to-your-logo8.png" },
+];
 const Services = () => {
   return (
-    <div className="w-full flex flex-col md:flex-row justify-center gap-10 mx-auto my-16 md:w-[80%]">
-      {/* Image Section */}
-      <div className="w-full md:w-[50%] flex justify-center">
-        <img src={services} className="h-[300px] md:h-[400px] object-cover" alt="Services" />
-      </div>
+    <>
+      <div className="text-white text-7xl mt-24 text-center">WE OFFER</div>
 
-      {/* Text Section */}
-      <div className="flex flex-col md:w-[50%] w-full md:max-w-[40%] max-w-full px-4 md:px-0">
-        <h1 className="text-2xl md:text-3xl font-medium text-center md:text-left">Know about our Services</h1>
-        <p className="text-sm md:text-base text-[#666666] mt-4 text-center md:text-left">
-          Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-        </p>
+      <div className="relative w-[72%] mx-auto h-[480px] text-white mt-1">
 
-        {/* List Section */}
-        <div className="flex flex-row items-center justify-center md:justify-start mt-6 gap-5">
-          <div className="flex flex-col gap-3">
-            <li className="flex items-center gap-3 bg-[#F5F4F4] w-[140px] md:w-[150px] h-[40px] p-2">
-              <img src={tick} alt="tick" className="w-4 h-4" />
-              <p className="text-sm md:text-lg">Korem ipsum</p>
-            </li>
-            <li className="flex items-center gap-3 bg-[#F5F4F4] w-[140px] md:w-[150px] h-[40px] p-2">
-              <img src={tick} alt="tick" className="w-4 h-4" />
-              <p className="text-sm md:text-lg">Korem ipsum</p>
-            </li>
-            <li className="flex items-center gap-3 bg-[#F5F4F4] w-[140px] md:w-[150px] h-[40px] p-2">
-              <img src={tick} alt="tick" className="w-4 h-4" />
-              <p className="text-sm md:text-lg">Korem ipsum</p>
-            </li>
-          </div>
-          
-          <div className="flex flex-col gap-3 md:mt-0">
-            <li className="flex items-center gap-3 bg-[#F5F4F4] w-[140px] md:w-[150px] h-[40px] p-2">
-              <img src={tick} alt="tick" className="w-4 h-4" />
-              <p className="text-sm md:text-lg">Korem ipsum</p>
-            </li>
-            <li className="flex items-center gap-3 bg-[#F5F4F4] w-[140px] md:w-[150px] h-[40px] p-2">
-              <img src={tick} alt="tick" className="w-4 h-4" />
-              <p className="text-sm md:text-lg">Korem ipsum</p>
-            </li>
-            <li className="flex items-center gap-3 bg-[#F5F4F4] w-[140px] md:w-[150px] h-[40px] p-2">
-              <img src={tick} alt="tick" className="w-4 h-4" />
-              <p className="text-sm md:text-lg">Korem ipsum</p>
-            </li>
-          </div>
+        <div className="absolute inset-0 bg-black blur"></div>
+
+        <div className="relative grid grid-cols-4 gap-10 pt-16">
+          {services.map((service, index) => (
+            <div key={index} className="flex flex-col items-center text-center mt-4">
+              <div className="w-15 h-15 flex justify-center items-center rounded-[12px] bg-[#CAB276] p-3">
+                <img
+                  src={service.icon}
+                  alt="tapas"
+                  width={50}
+                  height={50}
+                />
+              </div>
+              <h3 className="mt-4 text-lg font-bold">{service.title}</h3>
+              <p className="text-sm text-gray-300">{service.subtitle}</p>
+            </div>
+          ))}
         </div>
-
-        {/* Button */}
-        <button className="self-center md:self-start px-6 py-2 bg-amber-600 mt-8 text-white">
-          Know More
-        </button>
       </div>
-    </div>
+    </>
   );
-};
+}
 
-export default Services;
+export default Services

@@ -1,33 +1,43 @@
+import React from "react";
 
-import backgroundImage from '../../assets/Home/bg3.png';
-
-const AboutUs = () => {
+const ContactUs = () => {
   return (
-    <div>
-       <h2 className="text-3xl font-medium mb-6 text-center">About Us</h2>
-    <div className="relative h-auto lg:h-[500px] flex items-center font-italic bg-cover bg-center  lg:w-[90%] mx-auto rounded-2xl inset-1 bg-black" style={{ backgroundImage: `url(${backgroundImage})` }}>
-      <div className=" p-8 text-left max-w-3xl">
-       
-        <p className="text-white mb-4">
-          Dancing Script is a flowing cursive font that brings an air of playfulness to your designs with curves that loop along to connect the letters.
-        </p>
-        <p className="text-white mb-4">
-          Dancing Script is a flowing cursive font that brings an air of playfulness to your designs with curves that loop along to connect the letters.
-        </p>
-        <p className="text-white mb-4">
-          Dancing Script is a flowing cursive font that brings an air of playfulness to your designs with curves that loop along to connect the letters.
-        </p>
-        <p className="text-white mb-4">
-          Dancing Script is a flowing cursive font that brings an air of playfulness to your designs with curves that loop along to connect the letters.
-        </p>
-        <p className="text-white">
-          Dancing Script is a flowing cursive font that brings an air of playfulness to your designs with curves that loop along to connect the letters.
-        </p>
-      </div>
+    <div className="relative w-full min-h-[500px] bg-gradient-to-r from-[#A18645] to-[#CAB276] flex items-center justify-center mt-[200px]">
+      <h1 className="absolute top-[-30px] text-center text-white text-6xl font-bold">
+        CONTACT US
+      </h1>
+      <form className="p-6">
+        <div className="mb-4 w-[400px] md:w-[700px]">
+          <input
+            type="text"
+            placeholder="Name*"
+            className="w-full p-3 bg-black text-white border-transparent focus:border-transparent focus:ring-0"
+          />
+        </div>
+        <div className="mb-4">
+          <input
+            type="email"
+            placeholder="Email*"
+            className="w-full p-3 bg-black text-white focus:border-transparent focus:ring-0 "
+          />
+        </div>
+        <div className="mb-4">
+          <textarea
+            placeholder="Message"
+            className="w-full p-3 bg-black text-white focus:border-transparent focus:ring-0 h-28"
+          ></textarea>
+        </div>
+        <div className="flex justify-center">
+          <button
+            type="submit"
+            className="w-[150px] py-2 bg-[#FFE49F] text-black font-semibold rounded-lg hover:bg-[#DFC47A]"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
     </div>
-    </div>
-   
   );
 };
 
-export default AboutUs;
+export default ContactUs;
