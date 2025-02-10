@@ -2,7 +2,7 @@ const GradientBg = () => {
   return (
     <div className="h-[580px] bg-[#CAB276] bg-opacity-30 my-[200px]">
       <div className="relative flex flex-col items-center w-full">
-        <h2 className="absolute top-[-30px] text-7xl font-bold text-white mb-9">LETS BEGIN</h2>
+        <h2 className="absolute top-[-32px] text-7xl font-raleway font-bold text-white mb-9">LETS BEGIN</h2>
         <div className="flex w-full justify-center items-center gap-x-[200px] ml-[80px] mt-[100px]">
           <div className="relative w-[300px] h-[330px] border-4 border-[#FFE49F] shadow-[0px_0px_20px_rgba(255,228,159,0.4)] rounded-lg flex justify-center items-center">
             <img
@@ -39,7 +39,7 @@ const GradientBg = () => {
                 <span className="w-8 h-8 flex justify-center items-center bg-white text-black rounded-full mr-4 font-bold">
                   {index + 1}
                 </span>
-                <span className="font-medium">
+                <span className="font-semibold font-raleway">
                   <span className="text-[#CAB276]">{step}</span>
                 </span>
               </div>

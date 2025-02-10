@@ -3,7 +3,7 @@ import React from "react";
 const ContactUs = () => {
   return (
     <div className="relative w-full min-h-[500px] bg-gradient-to-r from-[#A18645] to-[#CAB276] flex items-center justify-center mt-[200px]">
-      <h1 className="absolute top-[-30px] text-center text-white text-6xl font-bold">
+      <h1 className="absolute top-[-30px] text-center text-white text-6xl font-raleway font-bold">
         CONTACT US
       </h1>
       <form className="p-6">
@@ -11,26 +11,26 @@ const ContactUs = () => {
           <input
             type="text"
             placeholder="Name*"
-            className="w-full p-3 bg-black text-white border-transparent focus:border-transparent focus:ring-0"
+            className="w-full p-3 bg-[#191924] text-[#CAB276] placeholder:text-[#CAB276] border-transparent focus:border-transparent focus:ring-0"
           />
         </div>
         <div className="mb-4">
           <input
             type="email"
             placeholder="Email*"
-            className="w-full p-3 bg-black text-white focus:border-transparent focus:ring-0 "
+            className="w-full p-3 bg-[#191924] text-[#CAB276] placeholder:text-[#CAB276] border-transparent focus:border-transparent focus:ring-0 "
           />
         </div>
         <div className="mb-4">
           <textarea
             placeholder="Message"
-            className="w-full p-3 bg-black text-white focus:border-transparent focus:ring-0 h-28"
+            className="w-full p-3 bg-[#191924] text-[#CAB276] placeholder:text-[#CAB276] border-transparent focus:border-transparent focus:ring-0 h-28"
           ></textarea>
         </div>
         <div className="flex justify-center">
           <button
             type="submit"
-            className="w-[150px] py-2 bg-[#FFE49F] text-black font-semibold rounded-lg hover:bg-[#DFC47A]"
+            className="w-[150px] py-2 bg-[#FFE49F] text-black font-raleway font-medium rounded-lg text-[25px] hover:bg-[#DFC47A]"
           >
             Submit
           </button>

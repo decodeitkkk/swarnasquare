@@ -28,7 +28,7 @@ const FAQ = () => {
     <div className="bg-[#CAB276] bg-opacity-30 h-auto min-h-[340px]">
       <div className="relative w-[80%] mx-auto mt-24 text-black ">
         <div className="relative flex justify-center">
-          <h2 className="text-5xl text-white font-bold absolute top-[-30px]">
+          <h2 className="text-5xl font-raleway text-white font-bold absolute top-[-30px]">
             FAQ
           </h2>
         </div>
@@ -37,16 +37,16 @@ const FAQ = () => {
           {faqs.map((faq, index) => (
             <div key={index} className="border-b border-gray-800">
               <button
-                className="w-full flex justify-between items-center px-6 py-4 text-lg font-medium bg-[#CAB276] rounded-md"
+                className="w-full flex justify-between items-center px-6 py-4 text-lg font-comfortaa bg-[#CAB276] rounded-md"
                 onClick={() => toggleFAQ(index)}
               >
                 {faq.question}
-                <span className="text-2xl">
+                <span className="text-lg font-comfortaa">
                   {openIndex === index ? "-" : "+"}
                 </span>
               </button>
               {openIndex === index && (
-                <div className="p-4 text-black bg-white rounded-b-lg">
+                <div className="p-4 text-black bg-white rounded-b-lg font-comfortaa text-md">
                   {faq.answer}
                 </div>
               )}

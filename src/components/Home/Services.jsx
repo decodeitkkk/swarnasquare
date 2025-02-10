@@ -30,25 +30,28 @@ const services = [
 const Services = () => {
   return (
     <>
-      <div className="text-white text-7xl mt-24 text-center">WE OFFER</div>
+      <div className="text-white text-7xl mt-24 text-center font-raleway font-bold">
+        WE OFFER
+      </div>
 
       <div className="relative w-[72%] mx-auto h-[480px] text-white mt-1">
-
         <div className="absolute inset-0 bg-black blur"></div>
 
         <div className="relative grid grid-cols-4 gap-10 pt-16">
           {services.map((service, index) => (
-            <div key={index} className="flex flex-col items-center text-center mt-4">
+            <div
+              key={index}
+              className="flex flex-col items-center text-center mt-4"
+            >
               <div className="w-15 h-15 flex justify-center items-center rounded-[12px] bg-[#CAB276] p-3">
-                <img
-                  src={service.icon}
-                  alt="tapas"
-                  width={50}
-                  height={50}
-                />
+                <img src={service.icon} alt="xxxxx" width={50} height={50} />
               </div>
-              <h3 className="mt-4 text-lg font-bold">{service.title}</h3>
-              <p className="text-sm text-gray-300">{service.subtitle}</p>
+              <h3 className="mt-4 text-[#FFE49F] font-raleway font-bold">
+                {service.title}
+              </h3>
+              <p className="text-[12px] text-[#FFE49F] font-raleway font-medium">
+                {service.subtitle}
+              </p>
             </div>
           ))}
         </div>

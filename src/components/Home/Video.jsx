@@ -1,79 +1,145 @@
 import { useState, useEffect } from "react";
+import { IconButton } from "@mui/material";
+import { ArrowBack, ArrowForward } from "@mui/icons-material";
 
 const MediaCarousel = () => {
   const mediaItems = [
-    { id: 1, type: "image", url: "/images/banner1.jpg", title: "First Banner" },
-    { id: 2, type: "video", url: "/videos/video1.mp4", title: "First Video" },
+    {
+      id: 1,
+      type: "image",
+      url: "",
+      title: "JEWELLERY",
+      subtitle: "SHOP NOW",
+    },
+    {
+      id: 2,
+      type: "video",
+      url: "/videos/video1.mp4",
+      title: "VIDEO CONTENT",
+    },
     {
       id: 3,
       type: "image",
-      url: "/images/banner2.jpg",
-      title: "Second Banner",
+      url: "/images/personal.jpg",
+      title: "PERSONAL",
+      subtitle: "EXPLORE",
     },
-    { id: 4, type: "video", url: "/videos/video2.mp4", title: "Second Video" },
+    {
+      id: 4,
+      type: "video",
+      url: "/videos/video1.mp4",
+      title: "VIDEO CONTENT",
+    },
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(3); // Start with second video (index 3)
+  const [currentIndex, setCurrentIndex] = useState(2);
 
   const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % mediaItems.length);
+    setCurrentIndex((prev) => {
+      if (prev === mediaItems.length - 1) return 0;
+      return prev + 1;
+    });
   };
 
   const handlePrev = () => {
-    setCurrentIndex(
-      (prev) => (prev - 1 + mediaItems.length) % mediaItems.length
-    );
+    setCurrentIndex((prev) => {
+      if (prev === 0) return mediaItems.length - 1;
+      return prev - 1;
+    });
+  };
+
+  const getSlideOffset = (index) => {
+    const cardWidth = 80; // 80% of container width
+    const gapWidth = ((1.5 * 16) / window.innerWidth) * 100; // Convert 1.5rem to percentage
+    return index * (cardWidth + gapWidth);
   };
 
   return (
-    <div className="max-w-7xl mx-auto py-10 text-center px-4">
-      <div className="relative flex items-center justify-center mx-auto overflow-hidden">
-        {/* Navigation Buttons */}
-        <button
+    <div className="py-10">
+      <div className="max-w-7xl mx-auto relative">
+        <IconButton
           onClick={handlePrev}
-          className="absolute left-4 z-10 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg"
+          sx={{
+            position: "absolute",
+            left: "-60px",
+            top: "50%",
+            transform: "translateY(-50%)",
+            color: "rgba(255, 255, 255, 0.8)",
+            zIndex: 10,
+            "&:hover": {
+              color: "white",
+              backgroundColor: "rgba(255, 255, 255, 0.1)",
+            },
+          }}
+          aria-label="Previous"
         >
-          ←
-        </button>
+          <ArrowBack />
+        </IconButton>
 
-        <button
+        <IconButton
           onClick={handleNext}
-          className="absolute right-4 z-10 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg"
+          sx={{
+            position: "absolute",
+            right: "-60px",
+            top: "50%",
+            transform: "translateY(-50%)",
+            color: "rgba(255, 255, 255, 0.8)",
+            zIndex: 10,
+            "&:hover": {
+              color: "white",
+              backgroundColor: "rgba(255, 255, 255, 0.1)",
+            },
+          }}
+          aria-label="Next"
         >
-          →
-        </button>
+          <ArrowForward />
+        </IconButton>
 
-        {/* Media Display */}
-        <div className="w-[80%] mx-4 overflow-hidden">
+        <div className="w-full overflow-hidden px-4">
           <div
-            className="flex items-center gap-x-6 transition-transform duration-500 ease-in-out mx-auto"
+            className="flex gap-6 transition-transform duration-500 ease-in-out"
             style={{
-              transform: `translateX(-${currentIndex * 100}%)`,
+              transform: `translateX(-${getSlideOffset(currentIndex)}%)`,
             }}
           >
             {mediaItems.map((item, index) => (
-              <div key={index} className="w-full flex-shrink-0 bg-black">
-                <div
-                  className={`relative w-full h-[60vh] flex items-center justify-center rounded-lg transition-all duration-500 ${
+              <div
+                key={item.id}
+                className={`relative w-[80%] flex-shrink-0 h-[300px] overflow-hidden
+                  transition-all duration-500 group
+                  ${
                     index === currentIndex
-                      ? "scale-110 shadow-[0_0_25px_5px_gold]"
-                      : ""
+                      ? "scale-110"
+                      : "scale-90"
                   }`}
-                >
-                  {item.type === "video" ? (
-                    <video
-                      src={item.url}
-                      autoPlay
-                      loop
-                      muted
-                      className="w-full h-full object-cover rounded-lg"
-                    />
-                  ) : (
-                    <img
-                      src={item.url}
-                      alt={item.title}
-                      className="w-full h-full object-cover rounded-lg"
-                    />
+              >
+                {item.type === "video" ? (
+                  <video
+                    src={item.url}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <img
+                    src={item.url}
+                    alt={item.title}
+                    className="w-full h-full object-cover"
+                  />
+                )}
+
+                <div className="absolute inset-0 bg-black transition-opacity duration-300" />
+
+                <div className="absolute bottom-6 left-6 text-white">
+                  <h3 className="text-2xl font-light tracking-wider">
+                    {item.title}
+                  </h3>
+                  {item.subtitle && (
+                    <button className="mt-2 text-sm tracking-wider border-b border-white/50 pb-1 hover:border-white transition-colors">
+                      {item.subtitle}
+                    </button>
                   )}
                 </div>
               </div>

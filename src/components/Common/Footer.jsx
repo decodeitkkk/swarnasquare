@@ -1,4 +1,5 @@
-import React from 'react'
+import React from "react";
+import { Email, Facebook, Instagram } from "@mui/icons-material";
 
 const Footer = () => {
   return (
@@ -11,22 +12,45 @@ const Footer = () => {
           <p>Phone: +91 7854-612xxx</p>
           <p>Address: Bangalore, Karnataka, India [Pincode]</p>
         </div>
+
         <div>
           <h2 className="text-lg font-bold">COMPANY</h2>
           <p>Privacy</p>
           <p>Terms and Conditions</p>
         </div>
+
         <div>
           <h2 className="text-lg font-bold">LINKS</h2>
           <p>link</p>
           <p>link.com</p>
         </div>
+
+        {/* Social Media */}
         <div>
           <h2 className="text-lg font-bold">SOCIAL MEDIA</h2>
-          <div className="flex justify-center md:justify-start space-x-4">
-            <span className="bg-[#FFE49F] p-2 rounded-full">📧</span>
-            <span className="bg-[#FFE49F] p-2 rounded-full">📘</span>
-            <span className="bg-[#FFE49F] p-2 rounded-full">📸</span>
+          <div className="flex justify-center md:justify-start space-x-4 mt-2">
+            <a
+              href="mailto:support@swarnasquare.com"
+              className="text-[#FFE49F]"
+            >
+              <Email fontSize="large" />
+            </a>
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#FFE49F]"
+            >
+              <Facebook fontSize="large" />
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#FFE49F]"
+            >
+              <Instagram fontSize="large" />
+            </a>
           </div>
         </div>
       </div>
@@ -35,6 +59,6 @@ const Footer = () => {
       </div>
     </footer>
   );
-}
+};
 
-export default Footer
+export default Footer;

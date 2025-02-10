@@ -25,6 +25,7 @@ export default {
         shalimar: ["Shalimar", "cursive"],
         romanesco: ["Romanesco", "cursive"],
         im: ["Island Moments", "cursive"],
+        raleway: ["Raleway", "cursive"],
       },
       perspective: {
         1000: "1000px",
