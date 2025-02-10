@@ -1,66 +1,62 @@
-
 import { useState, useEffect } from "react";
-import img1 from "../../assets/Home/Gallery/1.png";
-import img2 from "../../assets/Home/Gallery/2.png";
-import img3 from "../../assets/Home/Gallery/3.png";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const Gallery = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [cardsPerSlide, setCardsPerSlide] = useState(3); 
+  const [cardsPerSlide, setCardsPerSlide] = useState(4);
 
   const cards = [
     {
-      title: "Proin Commodo",
-      weight: "200 Gm",
-      img: img1,
+      title: "TEMPLE WORK",
+      img: "", // Ensure valid images are used
+      type: "category",
     },
     {
-      title: "Vestibulum Porta",
-      weight: "500 Gm",
-      img: img2,
+      title: "GOLD BEADS",
+      img: "/images/gold-beads.jpg",
+      type: "category",
     },
     {
-      title: "Jewellery Set",
-      weight: "1000 Gm",
-      img: img3,
+      title: "GOLD CHAINS",
+      img: "/images/gold-chains.jpg",
+      type: "category",
     },
     {
-      title: "Jewellery Set",
-      weight: "200 Gm",
-      img: img1,
+      title: "GOLD BULLION",
+      img: "/images/gold-bullion.jpg",
+      type: "category",
     },
     {
-      title: "Vestibulum Porta",
-      weight: "500 Gm",
-      img: img2,
+      title: "DIE COLLECTION",
+      img: "/images/die-collection.jpg",
+      type: "category",
     },
     {
-      title: "Jewellery Set",
-      weight: "1000 Gm",
-      img: img3,
+      title: "GOLD ATTACHMENTS",
+      img: "/images/gold-attachments.jpg",
+      type: "category",
+    },
+    {
+      title: "GOLD ATTACHMENTS",
+      img: "/images/gold-attachments.jpg",
+      type: "category",
     },
   ];
 
-  // Adjust the number of cards shown per slide based on window width
-  const updateCardsPerSlide = () => {
-    const width = window.innerWidth;
-    if (width < 640) {
-      setCardsPerSlide(1); // 1 card on small screens
-    } else if (width >= 640 && width < 1024) {
-      setCardsPerSlide(2); // 2 cards on medium screens
-    } else {
-      setCardsPerSlide(3); // 3 cards on large screens
-    }
-  };
-
+  // Adjust number of visible cards based on screen size
   useEffect(() => {
-    updateCardsPerSlide(); // Set on load
-    window.addEventListener("resize", updateCardsPerSlide); // Update on window resize
-    return () => window.removeEventListener("resize", updateCardsPerSlide); // Cleanup
+    const updateCardsPerSlide = () => {
+      const width = window.innerWidth;
+      setCardsPerSlide(width < 640 ? 2 : width < 1024 ? 3 : 6);
+    };
+
+    updateCardsPerSlide(); // Set initial value
+    window.addEventListener("resize", updateCardsPerSlide);
+
+    return () => window.removeEventListener("resize", updateCardsPerSlide);
   }, []);
 
-  const totalSlides = Math.ceil(cards.length / cardsPerSlide); // Total number of slides based on cardsPerSlide
+  const totalSlides = Math.ceil(cards.length / cardsPerSlide);
 
   const handleNext = () => {
     setCurrentSlide((prev) => (prev + 1) % totalSlides);
@@ -71,43 +67,78 @@ const Gallery = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto py-10 text-center px-4">
-      <h2 className="text-3xl font-medium">Gallery</h2>
-      <p className="text-gray-500 mb-4 lg:mb-8">A large collection of gold jewellery</p>
+    <div className="relative w-full bg-[#FFE49F] bg-opacity-30 py-24 mt-16">
+      {/* Title */}
+      {/* <div className="relative text-center mb-6"> */}
+      <h2 className="absolute top-[-30px] left-[28%] text-4xl md:text-6xl text-white font-raleway font-bold">
+        ULTIMATE COLLECTION
+      </h2>
+      {/* </div> */}
 
-      <div className="relative flex items-center justify-center mx-auto">
+      <div className="relative w-full">
         {/* Previous Button */}
         <button
           onClick={handlePrev}
-          className="absolute left-2 lg:left-4 top-1/2 -translate-y-1/2  p-2 rounded-full z-10"
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 p-3 rounded-full hover:bg-black/70"
         >
-          <span className="text-2xl"><ArrowLeft className="text-orange-500" /></span>
+          <ArrowLeft className="text-yellow-500 w-6 h-6" />
         </button>
 
-        {/* Carousel */}
-        <div className="w-full  h-full mx-auto overflow-hidden ">
+        {/* Carousel Wrapper */}
+        <div className="relative h-[350px] overflow-visible bg-[#CAB276]">
           <div
-            className="flex items-center transition-transform duration-500 ease-in-out  mx-auto"
-            style={{ transform: `translateX(-${currentSlide * (100 / cardsPerSlide)}%)` }}
+            className="flex transition-transform duration-500 ease-in-out"
+            style={{
+              transform: `translateX(-${
+                currentSlide * (100 / cardsPerSlide)
+              }%)`,
+            }}
           >
-            {/* Cards: group them based on responsive design */}
             {cards.map((card, index) => (
               <div
                 key={index}
-                className="w-full md:w-1/2 lg:w-1/3 px-4 flex-shrink-0"
-                style={{ minWidth: `${100 / cardsPerSlide}%` }}
+                className="relative flex-shrink-0 px-4 py-12"
+                style={{ width: `${100 / cardsPerSlide}%` }}
               >
-                <div className="w-full h-full bg-white rounded-lg flex flex-col items-center justify-center">
-                  <img
-                    src={card.img}
-                    alt={card.title}
-                    className="w-[70%] lg:w-[80%] md:w-[80%] lg:h-[70%] md:h-[70%] h-[40%] object-cover rounded-l-3xl"
-                  />
-                  <div className=" mt-0 md:mt-2 lg:mt-2 p-4 text-center">
-                    <h3 className=" text-base lg:text-xl font-semibold">{card.title}</h3>
-                    <p className="text-gray-500 lg:text-base text-sm">{card.weight}</p>
-                    <button className="lg:mt-2 md:mt-2 mt-1 px-4 py-2 bg-white text-orange-500 border-2 border-orange-500 rounded text-sm lg:text-base md:text-base">
-                      BUY NOW
+                <div
+                  className="
+                  relative group cursor-pointer 
+                  transition-all duration-700 ease-in-out
+                  hover:scale-150 hover:z-50 hover:shadow-2xl
+                  h-[250px] w-[200px] bg-white overflow-hidden
+                  shadow-lg"
+                >
+                  {/* Image */}
+                  <div className="relative w-full h-64">
+                    <img
+                      src={card.img}
+                      alt={card.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-20 transition-opacity duration-300" />
+                  </div>
+
+                  {/* Title & Button (Repositions on hover) */}
+                  <div
+                    className="
+              absolute left-0 right-0 p-4 text-center transition-all duration-300
+              group-hover:bottom-4 group-hover:flex group-hover:flex-col group-hover:items-center"
+                    style={{
+                      bottom: "0px", // Default position
+                    }}
+                  >
+                    <h3 className="text-white text-sm font-bold tracking-wider transition-all duration-300">
+                      {card.title}
+                    </h3>
+
+                    {/* Button appears below on hover */}
+                    <button
+                      className="
+                mt-2 px-6 py-2 bg-yellow-500 text-black text-sm rounded-full 
+                opacity-0 group-hover:opacity-100 transition-all duration-300 
+                hover:bg-yellow-400 font-medium tracking-wide"
+                    >
+                      VIEW MORE
                     </button>
                   </div>
                 </div>
@@ -119,12 +150,11 @@ const Gallery = () => {
         {/* Next Button */}
         <button
           onClick={handleNext}
-          className="absolute right-2 lg:right-4  top-1/2 -translate-y-1/2 p-2 rounded-full z-10"
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 p-3 rounded-full hover:bg-black/70"
         >
-          <span className="text-2xl"><ArrowRight className="text-orange-500" /></span>
+          <ArrowRight className="text-yellow-500 w-6 h-6" />
         </button>
       </div>
-      
     </div>
   );
 };

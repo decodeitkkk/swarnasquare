@@ -1,22 +1,40 @@
-
-import Footer from './Footer';
-import Navbar from './Nav';
+import Navbar from "./Nav";
+import { useLocation } from "react-router-dom";
 
 const Layout = ({ children }) => {
+  const location = useLocation();
+
+  const hideNavFooterRoutes = [
+    "/loginphone",
+    "/signup",
+    "/loginphone/otp",
+    "/loginemail",
+  ];
+
+  const shouldHideNavFooter = hideNavFooterRoutes.includes(location.pathname);
+
   return (
-    <>
-      <header>
-        <Navbar />
-      </header>
+    <div className="flex flex-col min-h-screen">
+      <div
+        className="fixed inset-0 bg-cover bg-center bg-fixed blur-md -z-10"
+        style={{ backgroundImage: `url(./quote-bg.png)` }}
+      />
 
-      <main>
-        {children}
-      </main>
+      {!shouldHideNavFooter && (
+        <header className="sticky top-0 overflow-hidden">
+          <Navbar isFixed={false} />
+        </header>
+      )}
 
-      <footer>
-        <Footer />
-      </footer>
-    </>
+      {/* Main content */}
+      <main className="flex-grow">{children}</main>
+
+      {/* {!shouldHideNavFooter && (
+        <footer>
+          <Footer />
+        </footer>
+      )} */}
+    </div>
   );
 };
 
