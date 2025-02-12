@@ -48,11 +48,25 @@ const MediaCarousel = () => {
     });
   };
 
-  const getSlideOffset = (index) => {
-    const cardWidth = 80; // 80% of container width
-    const gapWidth = ((1.5 * 16) / window.innerWidth) * 100; // Convert 1.5rem to percentage
-    return index * (cardWidth + gapWidth);
-  };
+const getSlideOffset = (index) => {
+  const cardWidth = 80; // 80% of the container width
+  const gapWidth = ((1.5 * 16) / window.innerWidth) * 100; // Convert 1.5rem to percentage
+  const containerWidth = 100; // Full width in percentage
+  const centerOffset = (containerWidth - cardWidth) / 2; // Centering the focused card
+
+  if (index === 0) {
+    // If on the first card, center it and show only the right card
+    return 0;
+  } else if (index === mediaItems.length - 1) {
+    // If on the last card, center it and show only the left card
+    return index * (cardWidth + gapWidth) - (containerWidth - cardWidth);
+  }
+
+  // Default case: Center the current card while showing left & right cards
+  return index * (cardWidth + gapWidth) - centerOffset;
+};
+
+
 
   return (
     <div className="py-10">
@@ -105,13 +119,13 @@ const MediaCarousel = () => {
             {mediaItems.map((item, index) => (
               <div
                 key={item.id}
-                className={`relative w-[80%] flex-shrink-0 h-[300px] overflow-hidden
-                  transition-all duration-500 group
-                  ${
-                    index === currentIndex
-                      ? "scale-110"
-                      : "scale-90"
-                  }`}
+                className={`relative w-[80%] flex-shrink-0 h-[300px] overflow-visible
+    transition-all duration-500 group will-change-transform
+    ${
+      index === currentIndex
+        ? "scale-110 shadow-[0px_0px_40px_15px_rgba(255,228,159,0.6)]"
+        : "scale-90"
+    }`}
               >
                 {item.type === "video" ? (
                   <video
@@ -152,3 +166,9 @@ const MediaCarousel = () => {
 };
 
 export default MediaCarousel;
+
+
+
+
+
+

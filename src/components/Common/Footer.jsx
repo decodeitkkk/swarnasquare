@@ -36,7 +36,7 @@ const Footer = () => {
               <Email fontSize="large" />
             </a>
             <a
-              href="https://facebook.com"
+              href=""
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#FFE49F]"
@@ -44,7 +44,7 @@ const Footer = () => {
               <Facebook fontSize="large" />
             </a>
             <a
-              href="https://instagram.com"
+              href=""
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#FFE49F]"

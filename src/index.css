@@ -31,5 +31,60 @@
         border: 3px solid transparent;
         border-image: linear-gradient(to right, #FFE49F, #978D71, #EDC253, #B38717, #E9C978, #99895F) 1;
     }
+    /* Default styles for all slides */
+.carousel-slide {
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 0.7;
+  transform: scale(0.85); /* Side slides are smaller */
+  width: 50%; /* Ensures side cards are partially visible */
+}
+
+/* Styles for the active slide */
+.swiper-slide-active {
+  opacity: 1 !important;
+  transform: scale(1.1) !important; /* Current card is scaled up */
+  width: 80% !important; /* Makes the current card wider */
+}
+
+/* Container for media (image/video) */
+.media-content {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Overlay effect */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: opacity 0.3s;
+}
+
+/* Title and button styling */
+.text-content {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+}
+
+.subtitle-btn {
+  margin-top: 10px;
+  font-size: 14px;
+  padding: 6px 12px;
+  border: 1px solid white;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.subtitle-btn:hover {
+  background: white;
+  color: black;
+}
+
 
   }
