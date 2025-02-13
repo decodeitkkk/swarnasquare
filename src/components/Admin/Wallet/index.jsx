@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import GridLayout from "react-grid-layout";
 import "react-grid-layout/css/styles.css";
 import "react-resizable/css/styles.css";
@@ -74,13 +74,12 @@ const Wallet = () => {
               static: false,
             });
           } else {
-            const isDepositFunds = item === "Deposit Funds";
             layout.push({
               i: item,
               x: index % 5,
               y: currentY + Math.floor(index / 5),
-              w: isDepositFunds ? 2 : 1,
-              h: isDepositFunds ? 2 : 1,
+              w: 1,
+              h: 1,
               static: false,
             });
           }
@@ -181,23 +180,27 @@ const Wallet = () => {
     return adjustedLayout;
   };
 
-  const onLayoutChange = (newLayout) => {
-    const hasChanges = newLayout.some((item, index) => {
-      const oldItem = gridLayout[index];
-      return (
-        oldItem &&
-        (oldItem.h !== item.h || oldItem.y !== item.y || oldItem.x !== item.x)
-      );
-    });
+const onLayoutChange = (newLayout) => {
+  const hasChanges = newLayout.some((item, index) => {
+    const oldItem = gridLayout[index];
+    return (
+      oldItem &&
+      (oldItem.h !== item.h || oldItem.y !== item.y || oldItem.x !== item.x)
+    );
+  });
 
-    if (hasChanges) {
-      const adjustedLayout = adjustLayoutForResize(newLayout);
+  if (hasChanges) {
+    const adjustedLayout = adjustLayoutForResize(newLayout);
+    if (JSON.stringify(adjustedLayout) !== JSON.stringify(gridLayout)) {
       setGridLayout(adjustedLayout);
       if (viewMode === "grid") {
         setLastGridLayout(adjustedLayout);
       }
     }
-  };
+  }
+};
+const memoizedGridLayout = useMemo(() => gridLayout, [gridLayout]);
+
 
   const toggleViewMode = (mode) => {
     setViewMode(mode);
