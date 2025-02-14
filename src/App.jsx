@@ -7,25 +7,7 @@ import LandingPage from './components/Home/LandingPage'
 import Products from './components/Products'
 import Services from './components/Services'
 import AboutUs from './components/AboutUs'
-import MeetUs from './components/MeetUs'
-import WhoWeAre from './components/AboutUs/WhoWeAre'
-import WhyUs from './components/AboutUs/WhyUs'
-import WhatWeDo from './components/AboutUs/WhatWeDo'
-import HowWeDo from './components/AboutUs/HowWeDo'
-import FAQSection from './components/AboutUs/FAQ'
 import Wallet from './components/Admin/Wallet/index'
-import UserManagement from './components/Admin/UserMangament'
-import KYC from './components/Admin/KYC'
-import INRTransactionHistory from './components/Admin/INRTransactionHistory'
-import GoldTransactionHistory from './components/Admin/GoldTransaction'
-import OrderList from './components/Admin/OrderList'
-import AdminUserModule from './components/Admin/AdminUser'
-import CustomDesignModule from './components/Admin/CustomDesign'
-import ProductForm from './components/Admin/Product/ProductForm'
-import ProductTable from './components/Admin/Product/ProductTable'
-import HomepageEditor from './components/Admin/HomePage'
-import CategoryForm from './components/Admin/Category/CategoryForm'
-import CategoryTable from './components/Admin/Category/CategoryTable'
 import { useEffect, useState } from 'react'
 import LoginPhone from "./components/Signupsignin/Login/LoginPhone"
 import LoginEmail from "./components/Signupsignin/Login/LoginEmail"
@@ -102,9 +84,7 @@ function App() {
           <Route
             path="/"
             element={
-              // <Layout>
                 <LandingPage />
-              // </Layout>
             }
           />
           <Route path="/products" element={<Products />} />
@@ -117,21 +97,15 @@ function App() {
             }
           />
           <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/about-us/who-we-are" element={<WhoWeAre />} />
-          <Route path="/about-us/why-us" element={<WhyUs />} />
-          <Route path="/about-us/what-we-do" element={<WhatWeDo />} />
-          <Route path="/about-us/how-we-do" element={<HowWeDo />} />
-          <Route path="/about-us/faq" element={<FAQSection />} />
-          <Route path="/meet-us" element={<MeetUs />} />
           <Route
-            path="/admin/wallet"
+            path="/client/dashboard"
             element={
               <DashboardLayout>
                 <Wallet />
               </DashboardLayout>
             }
           />
-          <Route
+          {/* <Route
             path="/admin/user-management"
             element={
               <DashboardLayout>
@@ -226,13 +200,12 @@ function App() {
                 <CategoryTable />
               </DashboardLayout>
             }
-          />
+          /> */}
           <Route path="/loginphone" element={<LoginPhone />} />
           <Route path="/loginemail" element={<LoginEmail />} />
           <Route path="loginphone/otp" element={<Otp />} />
           <Route path="/signup" element={<Signup />} />
         </Routes>
-        {/* </Layout> */}
       </BrowserRouter>
     </>
   );

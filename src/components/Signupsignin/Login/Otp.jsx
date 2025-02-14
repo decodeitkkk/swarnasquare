@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const Otp = () => {
   return (
@@ -62,9 +63,9 @@ const Otp = () => {
                 />
               </div>
               <div className="pb-2 text-sm text-center">
-                <a href="#" className="underline hover:text-[#ffeba7]">
+                <Link to="#" className="underline hover:text-[#ffeba7]">
                   Resend OTP
-                </a>
+                </Link>
               </div>
               <div className="flex justify-center">
                 <button className="w-60 py-2 text-xl bg-[#ffeba7] text-[#6B1F05] font-bold rounded-lg hover:bg-[#6B1F05] hover:text-[#ffeba7] transition-all shadow-[0_0_2px_2px_rgba(255,235,167,0.3)]">

@@ -55,9 +55,9 @@ const Loginemail = () => {
                 Submit
               </button>
               <div className="pb-6 text-sm text-center">
-                <a href="#" className=" underline marker:hover:text-[#ffeba7]">
+                <Link to="#" className=" underline marker:hover:text-[#ffeba7]">
                   Forgot your password?
-                </a>
+                </Link>
               </div>
             </div>
           </div>

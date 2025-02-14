@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const Preview = () => {
@@ -14,12 +15,12 @@ const Preview = () => {
           fine jewelry craftsmanship stands as a testament to our dedication to
           excellence.
         </p>
-        <a
-          href="#"
+        <Link
+          to="#"
           className="mt-4 text-right  underline font-raleway font-medium"
         >
           Discover our brand story
-        </a>
+        </Link>
       </div>
       {/* Right img Section */}
       <div className="relative w-full h-full">
@@ -49,12 +50,12 @@ const Preview = () => {
           strand of our craftsmanship, ensuring a flawless finish that our
           partners can rely on.
         </p>
-        <a
-          href=""
+        <Link
+          to=""
           className="text-right mt-4 underline font-raleway font-medium"
         >
           Know how we do it
-        </a>
+        </Link>
       </div>
     </div>
   );

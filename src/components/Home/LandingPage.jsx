@@ -61,25 +61,3 @@ const LandingPage = () => {
 };
 
 export default LandingPage;
-
-
-
-
-      // <div style={{ height: "1500px" }}>
-      //   <div
-      //     style={{
-      //       position: "sticky",
-      //       top: "80px", // Position it at the top of the viewport when sticky
-      //       zIndex: 1000, // Ensures it appears above other elements
-      //       backgroundColor: "white", // Background to prevent transparency
-      //       padding: "10px",
-      //       boxShadow: "0px 2px 5px rgba(0,0,0,0.2)", // Optional shadow for visibility
-      //     }}
-      //   >
-      //     I stick to the top when you scroll past me!
-      //   </div>
-      //   <div style={{ height: "2000px", paddingTop: "20px" }}>
-      //     {/* Content to make the page scrollable */}
-      //     Scroll down to see the sticky effect.
-      //   </div>
-      // </div>

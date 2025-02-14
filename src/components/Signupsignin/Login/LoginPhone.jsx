@@ -3,6 +3,7 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import GoogleIcon from "@mui/icons-material/Google";
 import AppleIcon from "@mui/icons-material/Apple";
 import EmailIcon from "@mui/icons-material/Email";
+import { Link } from "react-router-dom";
 
 const LoginPhone = () => {
   return (
@@ -47,13 +48,13 @@ const LoginPhone = () => {
               {/* Submit Button */}
               <div className="flex justify-center">
                 <button className="w-60 py-2 text-xl bg-[#ffeba7] text-[#6B1F05] font-bold rounded-lg hover:bg-[#6B1F05] hover:text-[#ffeba7] transition-all shadow-[0_0_2px_2px_rgba(255,235,167,0.3)]">
-                  <a href="/loginphone/otp">Get OTP</a>
+                  <Link to="/loginphone/otp">Get OTP</Link>
                 </button>
               </div>
               <div className="pb-6 text-sm text-center">
-                <a href="#" className="hover:text-[#ffeba7]">
+                <Link to="#" className="hover:text-[#ffeba7]">
                   Trouble Sign in?
-                </a>
+                </Link>
               </div>
               {/* Social Login Options */}
               <div className="flex flex-col items-center w-full space-y-4">
@@ -63,24 +64,22 @@ const LoginPhone = () => {
                   <hr className="flex-grow border-t border-gray-600" />
                 </div>
                 <div className="flex justify-center space-x-4 pb-7">
-                  <a
-                    href="#"
+                  <Link to="#"
                     className="p-3 text-black bg-[#ffeba7] rounded-full hover:bg-[#6B1F05] hover:text-[#ffeba7] transition-all"
                   >
                     <GoogleIcon sx={{ fontSize: 32 }} />
-                  </a>
-                  <a
-                    href="#"
+                  </Link>
+                  <Link to="#"
                     className="p-3 text-black bg-[#ffeba7] rounded-full hover:bg-[#6B1F05] hover:text-[#ffeba7] transition-all"
                   >
                     <AppleIcon sx={{ fontSize: 30 }} />
-                  </a>
-                  <a
-                    href="/loginemail"
+                  </Link>
+                  <Link
+                    to="/loginemail"
                     className="p-3 text-black bg-[#ffeba7] rounded-full hover:bg-[#6B1F05] hover:text-[#ffeba7] transition-all"
                   >
                     <EmailIcon sx={{ fontSize: 30 }} />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

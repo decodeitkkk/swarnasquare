@@ -1,6 +1,10 @@
 import React from "react";
 
 const ContactUs = () => {
+
+  function handleSubmit() {
+    // Your click logic here
+  }
   return (
     <div className="relative w-full min-h-[500px] bg-gradient-to-r from-[#A18645] to-[#CAB276] flex items-center justify-center mt-[200px]">
       <h1 className="absolute top-[-30px] text-center text-white text-6xl font-raleway font-bold">
@@ -29,8 +33,9 @@ const ContactUs = () => {
         </div>
         <div className="flex justify-center">
           <button
-            type="submit"
+            type="button"
             className="w-[150px] py-2 bg-[#FFE49F] text-black font-raleway font-medium rounded-lg text-[25px] hover:bg-[#DFC47A]"
+            onClick={handleSubmit}
           >
             Submit
           </button>
