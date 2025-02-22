@@ -1,41 +1,43 @@
+import Footer from "./Footer";
 import Navbar from "./Nav";
-import { useLocation } from "react-router-dom";
 
-const Layout = ({ children }) => {
-  const location = useLocation();
+import { Outlet, useLocation } from "react-router-dom";
 
-  const hideNavFooterRoutes = [
-    "/loginphone",
-    "/signup",
-    "/loginphone/otp",
-    "/loginemail",
-  ];
+const Layout = () => {
+    const location = useLocation();
 
-  const shouldHideNavFooter = hideNavFooterRoutes.includes(location.pathname);
+    const hideNavFooterRoutes = [
+        "/loginphone",
+        "/signup",
+        "/loginphone/otp",
+        "/loginemail",
+    ];
 
-  return (
-    <div className="flex flex-col min-h-screen">
-      <div
-        className="fixed inset-0 bg-cover bg-center bg-fixed blur-md -z-10"
-        style={{ backgroundImage: `url(./quote-bg.png)` }}
-      />
+    const shouldHideNavFooter = hideNavFooterRoutes.includes(location.pathname);
 
-      {!shouldHideNavFooter && (
-        <header className="sticky top-0 overflow-hidden">
-          <Navbar isFixed={false} />
-        </header>
-      )}
+    return (
+        <div className="flex flex-col min-h-screen">
+            <div
+                className=" -z-10 fixed inset-0 bg-cover bg-center bg-fixed blur-md   "
+                style={{ backgroundImage: `url(./quote-bg.png)` }}
+            />
 
-      {/* Main content */}
-      <main className="flex-grow">{children}</main>
+            {!shouldHideNavFooter && (
+                <header className="sticky top-0 overflow-hidden z-40">
+                    <Navbar isFixed={true} />
+                </header>
+            )}
 
-      {/* {!shouldHideNavFooter && (
-        <footer>
-          <Footer />
-        </footer>
-      )} */}
-    </div>
-  );
+            {/* Main content 
+        <main className="flex-grow">{children}</main>
+        */}
+            <div className="flex flex-col min-h-screen">
+                <Outlet />
+            </div>
+
+            {!shouldHideNavFooter && <Footer />}
+        </div>
+    );
 };
 
 export default Layout;
