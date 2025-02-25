@@ -10,6 +10,7 @@ import Preview from "../components/Home/Preview";
 import Services from "../components/Home/Services";
 import AboutUs from "../components/AboutUs";
 import Offers from "../components/Home/Offers";
+import { CarouselDemo } from "../components/Home/CarouselCard";
 
 const LandingPage = () => {
     return (
@@ -29,7 +30,7 @@ const LandingPage = () => {
             {/* Main Content */}
             <main className="w-full overflow-x-hidden z-0">
                 <Hero />
-
+                <CarouselDemo />
                 <Graph />
                 <Graph2 />
                 <Quote />
@@ -39,7 +40,6 @@ const LandingPage = () => {
                 <Offers />
                 <Services />
                 <FAQ />
-                <AboutUs />
             </main>
         </div>
     );
