@@ -18,7 +18,7 @@ const Layout = () => {
     return (
         <div className="flex flex-col min-h-screen">
             <div
-                className=" -z-10 fixed inset-0 bg-cover bg-center bg-fixed blur-md   "
+                className=" -z-10 fixed inset-0 bg-cover bg-center bg-fixed    "
                 style={{ backgroundImage: `url(./quote-bg.png)` }}
             />
 

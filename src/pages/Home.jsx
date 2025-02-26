@@ -11,6 +11,7 @@ import Services from "../components/Home/Services";
 import AboutUs from "../components/AboutUs";
 import Offers from "../components/Home/Offers";
 import { CarouselDemo } from "../components/Home/CarouselCard";
+import CTABanner from "../components/Home/CTABanner";
 
 const LandingPage = () => {
     return (
@@ -31,13 +32,19 @@ const LandingPage = () => {
             <main className="w-full overflow-x-hidden z-0">
                 <Hero />
                 <CarouselDemo />
-                <Graph />
-                <Graph2 />
+                <div className="bg-yellow-300 my-5 py-5 w-[80vw] rounded mx-auto">
+                  <div className="bg-black/50 w-[70vw] rounded mx-auto shadow-2xl shadow-black">
+                    <Graph />
+                  </div>
+                </div>
+
                 <Quote />
                 <Gallery />
+                <CTABanner />
                 <Preview />
                 <GradientBg />
-                <Offers />
+                <CTABanner />
+                
                 <Services />
                 <FAQ />
             </main>
