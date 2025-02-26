@@ -1,137 +1,112 @@
-import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import React, { useState } from "react";
+import { Menu, X, User } from "lucide-react";
 import { Link } from "react-router-dom";
 
-export default function Navbar({ isFixed = true }) {
-  const [isOpen, setIsOpen] = useState(false);
+let menu = [
+    {
+        to: "/products",
+        name: "Products",
+    },
+    {
+        to: "/services",
+        name: "Services",
+    },
+    {
+        to: "/about",
+        name: "About",
+    },
+    {
+        to: "/dashboard",
+        name: "Dashboard",
+    },
+];
 
-  return (
-    <>
-      <nav
-        className={`${
-          isFixed ? "fixed" : ""
-        } backdrop-blur-sm bg-[#291510] w-full z-10 text-white p-5 md:text-lg`}
-      >
-        <div className="container flex justify-between items-center">
-          <div className="flex items-center">
-            <Link
-              to="/"
-              className="flex items-center justify-center h-14 w-14 ml-[115px] bg-[#291510] rounded-full"
-            >
-              <img src="./SSlogo.png" alt="Logo" className="h-12 w-12" />
-            </Link>
-          </div>
+const Navbar = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-          <div className="font-comfortaa hidden md:flex space-x-6 ml-[40px]">
-            <Link
-              to="/products"
-              className="text-white hover:text-yellow-300 hover:underline"
-            >
-              Products
-            </Link>
-            <Link
-              to="/services"
-              className="text-white hover:text-yellow-300 hover:underline"
-            >
-              Services
-            </Link>
-            <Link
-              to="/about-us"
-              className="text-white hover:text-yellow-300 hover:underline"
-            >
-              About Us
-            </Link>
-            <Link
-              to="/meet-us"
-              className="text-white hover:text-yellow-300 hover:underline"
-            >
-              Meet Us
-            </Link>
-            <Link
-              to="/client/dashboard"
-              className="text-white hover:text-yellow-300 hover:underline"
-            >
-              Dashboard
-            </Link>
-          </div>
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
 
-          <div className="flex items-center space-x-4">
-            <Link
-              to="/loginphone"
-              className="text-white text-lg hover:text-yellow-300 hover:underline"
-            >
-              Login
-            </Link>
-            <Link
-              to="/signup"
-              className="text-[#291510] bg-white rounded-sm p-1 hover:text-yellow-300 hover:underline"
-            >
-              Signup
-            </Link>
-          </div>
+    return (
+        <nav className="bg-black text-white w-full">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="flex items-center justify-between h-16">
+                    {/* Logo */}
 
-          {/* Mobile Menu Toggle */}
-          <div className="md:hidden">
-            <button onClick={() => setIsOpen(!isOpen)}>
-              {isOpen ? (
-                <X className="text-white hover:text-yellow-400" />
-              ) : (
-                <Menu className="text-white hover:text-yellow-400" />
-              )}
-            </button>
-          </div>
-        </div>
+                    <div className="w-3/5 md:w-2/5 lg:w-1/5 ">
+                        <img src="/swarnasquare_logo.png" alt="" />
+                    </div>
 
-        {/* Mobile Menu */}
-        {isOpen && (
-          <div className="md:hidden backdrop-blur-sm bg-primary">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <Link
-                to="/products"
-                className="text-white hover:text-yellow-400 hover:underline block px-3 py-2"
-              >
-                Products
-              </Link>
-              <Link
-                to="/services"
-                className="text-white hover:text-yellow-400 hover:underline block px-3 py-2"
-              >
-                Services
-              </Link>
-              <Link
-                to="/about-us"
-                className="text-white hover:text-yellow-400 hover:underline block px-3 py-2"
-              >
-                About Us
-              </Link>
-              <Link
-                to="/meet-us"
-                className="text-white hover:text-yellow-400 hover:underline block px-3 py-2"
-              >
-                Meet Us
-              </Link>
-              <Link
-                to="/client/dashboard"
-                className="text-white hover:text-yellow-400 hover:underline block px-3 py-2"
-              >
-                Dashboard
-              </Link>
-              <Link
-                to="/loginphone"
-                className="text-white hover:text-yellow-400 hover:underline block px-3 py-2"
-              >
-                Login
-              </Link>
-              <Link
-                to="/signup"
-                className="text-white hover:text-yellow-400 hover:underline block px-3 py-2"
-              >
-                Signup
-              </Link>
+                    {/* Desktop Menu */}
+                    <div className="hidden md:block">
+                        <div className="ml-10 flex items-baseline space-x-8">
+                            {menu.map((m,index) => (
+                                <Link key={index}
+                                    to={m.to}
+                                    className="text-sm hover:text-amber-200 px-3 py-2 uppercase"
+                                >
+                                    {m.name}
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Profile & Sign up */}
+                    <div className="hidden md:flex items-center">
+                        <button className="text-white p-2 rounded-full hover:bg-gray-800">
+                            <User size={20} />
+                        </button>
+                        <button className="ml-4 bg-white text-black text-sm font-medium px-4 py-1 rounded hover:bg-amber-200">
+                            Sign up
+                        </button>
+                    </div>
+
+                    {/* Mobile menu button */}
+                    <div className="md:hidden flex items-center">
+                        <button
+                            onClick={toggleMenu}
+                            className="inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-gray-800 focus:outline-none"
+                        >
+                            {isMenuOpen ? (
+                                <X size={20} aria-hidden="true" />
+                            ) : (
+                                <Menu size={20} aria-hidden="true" />
+                            )}
+                        </button>
+                    </div>
+                </div>
             </div>
-          </div>
-        )}
-      </nav>
-    </>
-  );
-}
+
+            {/* Mobile Menu */}
+            {isMenuOpen && (
+                <div className="md:hidden bg-gray-900">
+                    <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                        {menu.map((m) => (
+                            <Link
+                                to={m.to}
+                                className="text-sm block hover:text-amber-200 px-3 py-2 uppercase"
+                            >
+                                {m.name}
+                            </Link>
+                        ))}
+                    </div>
+                    <div className="pt-4 pb-3 border-t border-gray-700">
+                        <div className="flex items-center px-5">
+                            <div className="ml-auto flex items-center">
+                                <button className="text-white p-2 rounded-full hover:bg-gray-800">
+                                    <User size={20} />
+                                </button>
+                                <button className="ml-4 bg-white text-black text-sm font-medium px-4 py-1 rounded hover:bg-amber-200">
+                                    Sign up
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+        </nav>
+    );
+};
+
+export default Navbar;

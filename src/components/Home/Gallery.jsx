@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-
+import {Heading} from "./Heading"
 const Gallery = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [cardsPerSlide, setCardsPerSlide] = useState(4);
@@ -38,10 +38,8 @@ const Gallery = () => {
   };
 
   return (
-    <div className="relative w-full bg-[#FFE49F] bg-opacity-30 py-24 mt-16">
-      <h2 className="absolute top-[-30px] left-[28%] text-4xl md:text-6xl text-white font-raleway font-bold">
-        ULTIMATE COLLECTION
-      </h2>
+    <div className="relative w-full bg-[#FFE49F] bg-opacity-30 md:py-24 mt-16">
+      <Heading heading="Utlimate Collection" />
 
       <div className="relative w-full">
         {/* Previous Button */}
@@ -133,4 +131,3 @@ const Gallery = () => {
 };
 
 export default Gallery;
-

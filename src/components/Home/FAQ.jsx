@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Heading2 } from "./Heading";
 
 const faqs = [
   {
@@ -25,36 +26,51 @@ const FAQ = () => {
   };
 
   return (
-    <div className="bg-[#CAB276] bg-opacity-30 h-auto min-h-[340px]">
-      <div className="relative w-[80%] mx-auto mt-24 text-black ">
-        <div className="relative flex justify-center">
-          <h2 className="text-5xl font-raleway text-white font-bold absolute top-[-30px]">
-            FAQ
-          </h2>
-        </div>
-
-        <div className="relative z-10 mt-14">
-          {faqs.map((faq, index) => (
-            <div key={index} className="border-b border-gray-800">
-              <button
-                className="w-full flex justify-between items-center px-6 py-4 text-lg font-comfortaa bg-[#CAB276] rounded-md"
-                onClick={() => toggleFAQ(index)}
-              >
-                {faq.question}
-                <span className="text-lg font-comfortaa">
-                  {openIndex === index ? "-" : "+"}
-                </span>
-              </button>
-              {openIndex === index && (
-                <div className="p-4 text-black bg-white rounded-b-lg font-comfortaa text-md">
-                  {faq.answer}
+    <>
+      <div className="bg-[#CAB276]/40 h-auto pb-10 ">
+        <div className="flex flex-col">
+          <div className=" -mt-8 md:-mt-10 mb-10  ">
+            <Heading2 heading="faq" />
+          </div>
+          <div className=" w-[80%] mx-auto  text-black ">
+            <div className=" ">
+              {faqs.map((faq, index) => (
+                <div
+                  key={index}
+                  className={` ${
+                    index !== 2 ? "border-b border-gray-800" : ""
+                  } `}
+                >
+                  <button
+                    className={`${
+                      index === 0
+                        ? "rounded-t-lg"
+                        : index === 2 && openIndex === 2
+                        ? "rounded-b-none"
+                        : index === 2 && openIndex !== 2
+                        ? "rounded-b-lg"
+                        : index === 0 && openIndex !== 2
+                    }
+                 w-full flex justify-between text-left md:items-center px-3 md:px-6 py-4 text-base md:text-lg font-comfortaa bg-[#CAB276] transform duration-500 `}
+                    onClick={() => toggleFAQ(index)}
+                  >
+                    {faq.question}
+                    <span className="text-lg font-comfortaa">
+                      {openIndex === index ? "-" : "+"}
+                    </span>
+                  </button>
+                  {openIndex === index && (
+                    <div className="p-4 text-black bg-[#FFE49F66]/40 text-sm md:text-base rounded-b-lg font-comfortaa text-md mb-2 transform duration-500 ">
+                      {faq.answer}
+                    </div>
+                  )}
                 </div>
-              )}
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
