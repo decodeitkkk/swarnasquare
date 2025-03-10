@@ -47,7 +47,7 @@ let router = createBrowserRouter([
                 element: <Services />,
             },
             {
-                path: "/about-us",
+                path: "/about",
                 element: <About />,
             },
             {

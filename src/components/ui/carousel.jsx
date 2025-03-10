@@ -1,4 +1,4 @@
-import { IconArrowNarrowRight } from "@tabler/icons-react";
+import { MoveRightIcon } from "lucide-react";
 import { useState, useRef, useId, useEffect } from "react";
 
 const Slide = ({ slide, index, current, handleSlideClick }) => {
@@ -137,7 +137,8 @@ const CarouselControl = ({ type, title, handleClick }) => {
             title={title}
             onClick={handleClick}
         >
-            <IconArrowNarrowRight className="text-neutral-600 dark:text-neutral-200" />
+            {/* <MoveRightIcon className="text-neutral-600 dark:text-neutral-200" /> */}
+            <MoveRightIcon />
         </button>
     );
 };

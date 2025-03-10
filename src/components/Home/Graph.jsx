@@ -59,7 +59,7 @@ const GoldTrendChart = () => {
 
   return (
     <>
-      <div className="">
+      <div className="bg-black p-10 ">
         <div className="md:max-w-3xl mx-auto bg-black p-2 md:p-6 rounded-lg shadow-md  ">
           <Line
             data={data}
@@ -69,36 +69,36 @@ const GoldTrendChart = () => {
             }}
           />
         </div>
-        <div className="relative bg-[#ffe49f]/80 p-4 md:p-6 lg:p-8 flex flex-col items-center md:flex-row md:items-center md:justify-between">
-          <div className="flex flex-col items md:flex-row md:items-center md:gap-4">
+        <div className=" bg-[#ffe49f]/80 p-4 md:p-2  flex flex-col items-center md:flex-row md:justify-start ">
+          <div className="flex flex-col items md:flex-row md:items-center md:gap-4 border-e-2 px-5 border-black ">
             <div className="h-[90px] flex flex-col justify-center items-center gap-0.5 text-center">
-              <div className="text-black text-2xl md:text-[32px] font-bold font-['Raleway']">
+              <div className="text-black text-xl md:text-xl font-bold font-raleway">
                 Live Gold Rate
               </div>
-              <div className="text-black text-lg md:text-2xl font-bold font-['Raleway'] leading-[33.60px]">
-                INR 7,322/gm 
+              <div className="text-black text-lg md:text-base font-medium font-raleway leading-[33.60px]">
+                INR 7,322/gm | BLR
               </div>
             </div>
           </div>
 
-          <div className="relative flex flex-col md:flex-row md:items-center md:gap-4">
-            <div className="relative bg-[#1f9d14]/80 rounded-[5px] px-3.5 py-[7px] flex items-center gap-2">
-              <div className="text-black text-lg md:text-[32px] font-bold font-['Roboto']">
-                5.50%
+          <div className=" md:flex md:flex-row md:justify-between md:items-center w-3/5 px-5 ">
+            <div className="flex flex-col md:flex-col  md:items-center md:justify-between ">
+              <div className=" bg-[#1f9d14]/80 rounded-[5px] px-4 py-2 flex items-center gap-2">
+                <div className="text-black text-lg md:text-xl font-bold font-['Roboto']">
+                  5.50%
+                </div>
+                <div>^</div>
               </div>
-              <div>^</div>
+              <div className="text-black text-center text-sm md:text-sm font-normal font-['Roboto'] mt-2 ">
+                Growth vs previous 30 days
+              </div>
             </div>
-            <div className="text-black text-center text-sm md:text-xl font-normal font-['Roboto'] mt-2 md:mt-0">
-              Growth vs previous 30 days
-            </div>
-          </div>
 
-          <div className="mt-4 md:mt-0">
-            <Button className="bg-black text-white" variant="default">
-              <Link to="/signup" >
-              Book Now
-              </Link>
-            </Button>
+            <div className="mt-4 md:mt-0">
+              <Button className="bg-black text-white" variant="default">
+                <Link to="/signup">Book Now</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </div>

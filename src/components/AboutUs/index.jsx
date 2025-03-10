@@ -1,20 +1,14 @@
+import About from "./About.jsx"
 import FAQSection from "./FAQ"
-import HowWeDo from "./HowWeDo"
+import HowWeDo from "./CorePrincipals.jsx"
 import WhatWeDo from "./WhatWeDo"
 import WhoWeAre from "./WhoWeAre"
-import WhyUs from "./WhyUs"
+import WhyUs from "./AboutTeam.jsx"
+import CorePrincipals from "./CorePrincipals.jsx"
+import AboutTeam from "./AboutTeam.jsx"
 
 
-const AboutUs = () => {
-  return (
-    <div>
-      <WhoWeAre/>
-      <WhatWeDo/>
-      <WhyUs/>
-      <HowWeDo/>
-      <FAQSection/>
-    </div>
-  )
-}
 
-export default AboutUs
+
+
+export {About, FAQSection, HowWeDo, WhatWeDo, WhoWeAre, WhyUs, CorePrincipals, AboutTeam }

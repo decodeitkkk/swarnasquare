@@ -17,7 +17,7 @@ const GradientBg = () => {
     const [hoveredImage, setHoveredImage] = useState(stepImages[0]);
 
     return (
-        <div className="md:h-[90vh] bg-[#CAB276]/30 backdrop-blur-xl my-20 pb-20">
+        <div className="md:h-[90vh] bg-[#CAB276]/30 backdrop-blur-xl mt-20 pb-20">
             <div className=" flex flex-col items-center w-full">
                 <div className=" -mt-8  md:-mt-10 mb-10">
                     <Heading2 heading= "LET'S BEGIN" />
