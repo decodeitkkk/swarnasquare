@@ -1,132 +1,82 @@
-import { useState, useEffect } from "react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
-import {Heading} from "./Heading"
+import React, { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/pagination";
+import { FreeMode, Pagination } from "swiper/modules";
+import { Button } from "../ui/button";
+import { Link } from "react-router-dom";
+import { Heading2 } from "./Heading";
+
+const cards = [
+  { title: "TEMPLE WORK", img: "/gallery_images_6.png" },
+  { title: "GOLD BEADS", img: "/gallery_images_1.png" },
+  { title: "GOLD CHAINS", img: "/gallery_images_2.png" },
+  { title: "GOLD BULLION", img: "/gallery_images_3.png" },
+  { title: "DIE COLLECTION", img: "/gallery_images_4.png" },
+  { title: "GOLD ATTACHMENTS", img: "/gallery_images_5.png" },
+  { title: "GOLD ATTACHMENTS", img: "/gallery_images_5.png" },
+];
+
 const Gallery = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [cardsPerSlide, setCardsPerSlide] = useState(4);
-  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState();
 
-  const cards = [
-    { title: "TEMPLE WORK", img: "" },
-    { title: "GOLD BEADS", img: "/images/gold-beads.jpg" },
-    { title: "GOLD CHAINS", img: "/images/gold-chains.jpg" },
-    { title: "GOLD BULLION", img: "/images/gold-bullion.jpg" },
-    { title: "DIE COLLECTION", img: "/images/die-collection.jpg" },
-    { title: "GOLD ATTACHMENTS", img: "/images/gold-attachments.jpg" },
-    { title: "GOLD ATTACHMENTS", img: "/images/gold-attachments.jpg" },
-  ];
-
-  useEffect(() => {
-    const updateCardsPerSlide = () => {
-      const width = window.innerWidth;
-      setCardsPerSlide(width < 640 ? 2 : width < 1024 ? 3 : 6);
-    };
-
-    updateCardsPerSlide();
-    window.addEventListener("resize", updateCardsPerSlide);
-    return () => window.removeEventListener("resize", updateCardsPerSlide);
-  }, []);
-
-  const totalSlides = Math.ceil(cards.length / cardsPerSlide);
-
-  const handleNext = () => {
-    setCurrentSlide((prev) => (prev + 1) % totalSlides);
-  };
-
-  const handlePrev = () => {
-    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
-  };
+  console.log(currentIndex, typeof currentIndex);
 
   return (
-    <div className="relative w-full bg-[#FFE49F] bg-opacity-30 md:py-24 mt-16">
-      <Heading heading="Utlimate Collection" />
-
-      <div className="relative w-full">
-        {/* Previous Button */}
-        <button
-          onClick={handlePrev}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 p-3 rounded-full hover:bg-black/70"
-        >
-          <ArrowLeft className="text-yellow-500 w-6 h-6" />
-        </button>
-
-        {/* Carousel Wrapper */}
-        <div className="relative h-[350px] overflow-hidden bg-[#CAB276] px-6">
-          <div
-            className="flex transition-transform duration-500 ease-in-out items-center"
-            style={{
-              transform: `translateX(-${
-                currentSlide * (100 / cardsPerSlide)
-              }%)`,
-              gap: hoveredIndex !== null ? "30px" : "10px",
-            }}
+    <>
+      <div className="bg-[#FFE49F4D]/30 py-20 backdrop-blur-sm z-[0]   ">
+        <div>
+          <div className=" -mt-28 mb-10 text-3xl md:text-5xl font-raleway font-bold text-white  backdrop-blur-sm bg-black/30  border-[0.51px] border-white py-2 px-4 rounded-md w-max mx-auto uppercase ">
+            Ultimate Collection
+          </div>
+          <Swiper
+            slidesPerView="auto"
+            spaceBetween={typeof currentIndex === "number" ? 100 : 100}
+            freeMode={true}
+            pagination={{ clickable: true }}
+            modules={[FreeMode]}
+            className="w-full bg-[#CAB276] overflow-visible  px-6"
           >
             {cards.map((card, index) => (
-              <div
+              <SwiperSlide
                 key={index}
-                className={`relative flex-shrink-0 px-4 py-12 transition-all duration-700 ease-in-out`}
-                style={{
-                  width: `${100 / cardsPerSlide}%`,
-                  transform:
-                    hoveredIndex !== null && hoveredIndex !== index
-                      ? "scale(0.9)"
-                      : "scale(1)",
-                  transition: "transform 0.5s ease",
-                }}
+                className="!w-[192px] py-10   hover:z-10 overflow-visible  "
               >
                 <div
-                  className="
-                    relative group overflow-hidden border-transparent transition-all duration-700
-                    ease-in-out hover:z-50 hover:border-[#FFE49F] hover:border-2 hover:shadow-[0px_0px_20px_rgba(255,228,159,0.6)]
-                  "
-                  style={{
-                    transform:
-                      hoveredIndex === index ? "scale(1.5)" : "scale(1)",
-                    transition: "transform 0.5s ease",
-                  }}
-                  onMouseEnter={() => setHoveredIndex(index)}
-                  onMouseLeave={() => setHoveredIndex(null)}
+                  className={` w-52 h-72   p-2 bg-[#302e29] flex-col justify-start items-center gap-3 inline-flex transform transition-all duration-500 ease-in-out hover:scale-150 ${
+                    index === currentIndex
+                      ? "border border-[#FFF1CE] drop-shadow-[0_0px_10px_#FFE49F]"
+                      : ""
+                  } `}
+                  onMouseEnter={() => setCurrentIndex(index)}
+                  onMouseLeave={() => setCurrentIndex("")}
                 >
-                  {/* Image */}
-                  <div className="relative w-full h-64">
-                    <img
-                      src={card.img}
-                      alt={card.title}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-20 transition-opacity duration-300" />
-                  </div>
-
-                  {/* Title & Button */}
-                  <div className="absolute left-0 right-0 text-center transition-all duration-500 bottom-4 group-hover:bottom-8 flex flex-col items-center">
-                    <h3 className="text-white text-sm font-comfortaa font-bold tracking-wider transition-all duration-300">
-                      {card.title}
-                    </h3>
-                    <button
-                      className="
-                        font-raleway cursor-pointer mt-2 px-6 py-2 bg-gradient-to-r from-[#FFE49F] via-[#F6CB5D] to-[#FFE49F]
-                        text-black text-sm rounded-sm font-bold tracking-wide opacity-0 scale-90 group-hover:opacity-100 
-                        group-hover:scale-100 transition-all duration-300
-                      "
+                  <img
+                    className="w-full h-full object-cover"
+                    src={card.img}
+                    alt={card.title}
+                  />
+                  <div className="w-[165px] text-white text-base  font-bold font-comfortaa text-center  ">
+                    {card.title}
+                    <Button
+                      size="sm"
+                      className={` ${
+                        index === currentIndex ? "block" : "hidden"
+                      } mx-auto text-black font-raleway  bg-gradient-to-r from-[#FFE49F]/30 from-2%  via-[#ffe49f] via-50%  to-[#FFE49F]/30 to-98% `}
                     >
-                      VIEW MORE
-                    </button>
+                      <Link to="#">
+                        <span>View More</span>
+                      </Link>
+                    </Button>
                   </div>
                 </div>
-              </div>
+              </SwiperSlide>
             ))}
-          </div>
+          </Swiper>
         </div>
-
-        {/* Next Button */}
-        <button
-          onClick={handleNext}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 p-3 rounded-full hover:bg-black/70"
-        >
-          <ArrowRight className="text-yellow-500 w-6 h-6" />
-        </button>
       </div>
-    </div>
+    </>
   );
 };
 

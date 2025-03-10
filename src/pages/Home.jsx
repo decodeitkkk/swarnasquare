@@ -8,15 +8,16 @@ import Graph from "../components/Home/Graph";
 import Quote from "../components/Home/Quote";
 import Preview from "../components/Home/Preview";
 import Services from "../components/Home/Services";
-import AboutUs from "../components/AboutUs";
+
 import Offers from "../components/Home/Offers";
-import { CarouselDemo } from "../components/Home/CarouselCard";
+import CarouselCard from "../components/Home/CarouselCard";
 import CTABanner from "../components/Home/CTABanner";
+import ContactForm from "../components/Home/Contact";
 
 const LandingPage = () => {
-    return (
-        <div className=" w-full  z-0 ">
-            {/**
+  return (
+    <div className=" w-full  z-0 ">
+      {/**
           <div
           className="fixed inset-0 -z-10 w-full h-screen bg-cover bg-center overflow-hidden"
           style={{
@@ -28,28 +29,33 @@ const LandingPage = () => {
           />
           */}
 
-            {/* Main Content */}
-            <main className="w-full overflow-x-hidden z-0">
-                <Hero />
-                <CarouselDemo />
-                <div className="bg-yellow-300 my-5 py-5 w-[80vw] rounded mx-auto">
-                  <div className="bg-black/50 w-[70vw] rounded mx-auto shadow-2xl shadow-black">
-                    <Graph />
-                  </div>
-                </div>
-
-                <Quote />
-                <Gallery />
-                <CTABanner />
-                <Preview />
-                <GradientBg />
-                <CTABanner />
-                
-                <Services />
-                <FAQ />
-            </main>
+      {/* Main Content */}
+      <main className="w-full overflow-x-hidden z-0">
+        <Hero />
+        <CarouselCard />
+        <div className="  py-5  ">
+          <div className="bg-gradient-to-b from-[#FFE49F] to-[#A18746]  p-16 w-[80vw] rounded mx-auto  ">
+            <div className="bg-black w-[70vw] rounded mx-auto shadow-[0_0px_50px_rgba(0,0,0)]  ">
+              <Graph />
+            </div>
+          </div>
         </div>
-    );
+
+        <Quote />
+        <Gallery />
+        <CTABanner />
+        <Preview />
+        <GradientBg />
+        <CTABanner />
+
+        <Services />
+        <FAQ />
+        <div className=" h-[55vh]  bg-gradient-to-l from-[#b38e43] to-[#91712d] flex items-center justify-center py-60 ">
+          <ContactForm />
+        </div>
+      </main>
+    </div>
+  );
 };
 
 export default LandingPage;

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-
+import { Heading2 } from "./Heading";
 const Gallery = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [cardsPerSlide, setCardsPerSlide] = useState(4);
@@ -38,10 +38,8 @@ const Gallery = () => {
   };
 
   return (
-    <div className="relative w-full bg-[#FFE49F] bg-opacity-30 py-24 mt-16">
-      <h2 className="absolute top-[-30px] left-[28%] text-4xl md:text-6xl text-white font-raleway font-bold">
-        ULTIMATE COLLECTION
-      </h2>
+    <div className="w-full bg-[#FFE49F]/30 h-[80vh] flex flex-col align-middle  ">
+      <Heading2 heading="Utlimate Collection" />
 
       <div className="relative w-full">
         {/* Previous Button */}
@@ -53,7 +51,7 @@ const Gallery = () => {
         </button>
 
         {/* Carousel Wrapper */}
-        <div className="relative h-[350px] overflow-hidden bg-[#CAB276] px-6">
+        <div className="w-full h-full  bg-[#CAB276] px-6">
           <div
             className="flex transition-transform duration-500 ease-in-out items-center"
             style={{

@@ -34,8 +34,10 @@ const Navbar = () => {
                 <div className="flex items-center justify-between h-16">
                     {/* Logo */}
 
-                    <div className="w-3/5 md:w-2/5 lg:w-1/5 ">
+                    <div className="w-3/5 md:w-2/5 lg:w-1/5 hover:cursor-pointer ">
+                    <Link to="/">
                         <img src="/swarnasquare_logo.png" alt="" />
+                    </Link>
                     </div>
 
                     {/* Desktop Menu */}

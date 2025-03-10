@@ -31,7 +31,7 @@ const Layout = () => {
             {/* Main content 
         <main className="flex-grow">{children}</main>
         */}
-            <div className="flex flex-col min-h-screen">
+            <div className="flex flex-col min-h-screen backdrop-blur-lg ">
                 <Outlet />
             </div>
 

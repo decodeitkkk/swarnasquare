@@ -4,7 +4,7 @@ import {Heading} from "./Heading";
 const Preview = () => {
   return (
     <>
-      <div className="flex flex-col flex-col-reverse md:flex-row  gap-0 md:h-[70vh]  md:w-[100vw] ">
+      <div className="flex flex-col flex-col-reverse md:flex-row  gap-0 md:h-[55vh]  md:w-[100vw] ">
         {/* Left Text Section */}
         <div className="bg-[#CAB276] p-10 flex flex-col justify-center w-full md:w-[50%] ">
           <div className=" text-black text-3xl md:text-4xl font-bold font-raleway">
@@ -33,7 +33,7 @@ const Preview = () => {
         </div>
       </div>
 
-      <div className="flex flex-col  md:flex-row  gap-0 md:h-[70vh]  md:w-[100vw] ">
+      <div className="flex flex-col  md:flex-row  gap-0 md:h-[55vh]  md:w-[100vw] ">
         {/* Right img Section */}
         <div className=" w-full md:w-[50%] bg-purple-500 ">
           <img
